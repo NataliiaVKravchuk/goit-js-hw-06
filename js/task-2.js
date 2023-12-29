@@ -1,30 +1,33 @@
-// Задача 2. Склад
+// Task 2. Storage
 
-// ВИКОНУЙ ЦЕ ЗАВДАННЯ У ФАЙЛІ task-2.js
+// PERFORM THIS TASK IN task-2.js
 
-// Створи клас Storage, який створюватиме об'єкти для управління складом товарів. 
-// Клас очікує лише один аргумент — початковий масив товарів, який записується до створеного об'єкта в приватну властивість items.
+// Create a Storage class that will create objects for managing the warehouse of goods.
+// The class expects only one argument — the initial array of goods, which is written to the created object in the items private property.
 
-// Оголоси наступні методи класу:
+// Declare the following class methods:
 
-// getItems() — повертає масив поточних товарів у приватній властивості items.
-// addItem(newItem) — приймає новий товар newItem і додає його до масиву товарів у приватну властивість items об'єкта.
-// removeItem(itemToRemove) — приймає рядок з назвою товару itemToRemove і видаляє його з масиву товарів у приватній властивості items об'єкта.
-// Візьми код нижче з ініціалізацією екземпляра й викликами методів і встав його після оголошення класу для перевірки коректності роботи. 
-// У консоль будуть виведені результати їх роботи. Будь ласка, нічого там не змінюй.
+// getItems() — returns an array of the current items in the private property "items".
+// addItem(newItem) — accepts the new item "newItem" and adds it to the array of items in the private property "items" of the object.
+// removeItem(itemToRemove) — accepts a string with the name of the product "itemToRemove" 
+// and removes it from the array of products in the private property "items" of the object.
+// Take the code below with the instance initialization and method calls and paste it after the class declaration to check that it works correctly. 
+// The results of their work will be displayed in the console. Please do not change anything there.
 
 class Storage {
+  #items;
+
   constructor(items){
-    this.items = items;
+    this.#items = items;
   }
   getItems(){
-    return this.items
+    return this.#items
   }
   addItem(newItem){
-    this.items.push(newItem);
+    this.#items.push(newItem);
   }
   removeItem(itemToRemove){
-    this.items = this.items.filter((elem) => elem !== itemToRemove);
+    this.#items = this.#items.filter((elem) => elem !== itemToRemove);
   }
 }
 
@@ -35,19 +38,19 @@ console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator",
 storage.removeItem("Prolonger");
 console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
 
-// Залиш цей код для перевірки ментором.
+// Leave this code for a mentor to review.
 
-// На що буде звертати увагу ментор при перевірці:
-// Оголошений клас Storage
-// У класі Storage оголошений метод getItems
-// У класі Storage оголошений метод addItem
-// У класі Storage оголошений метод removeItem
-// Властивість items у класі Storage оголошена приватною
-// Метод getItems повертає значення приватної властивості items екземпляра класу, який його викликає
-// Метод addItem змінює значення приватної властивості items екземпляра класу, який його викликає
-// Метод removeItem змінює значення приватної властивості items екземпляра класу, який його викликає
-// У результаті виклику new Storage(["Nanitoids", "Prolonger", "Antigravitator"]) значення змінної storage — це об'єкт
-// У об’єкта storage немає публічної властивості items
-// Перший виклик storage.getItems() одразу після ініціалізації екземпляра повертає масив ["Nanitoids", "Prolonger", "Antigravitator"]
-// Другий виклик storage.getItems() після виклику storage.addItem("Droid") повертає масив ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-// Третій виклик storage.getItems() після виклику storage.removeItem("Prolonger") повертає масив ["Nanitoids", "Antigravitator", "Droid"]
+// What the mentor will pay attention to during the inspection:
+// Declared class "Storage"
+// The "getItems" method is declared in the "Storage" class
+// The "addItem" method is declared in the "Storage" class
+// The "removeItem" method is declared in the "Storage" class 
+// The "items" property in the "Storage" class is declared as a private
+// The "getItems" method returns the value of the private property "items" of the instance of the class that calls it
+// The "addItem" method changes the value of the private property "items" of the instance of the class that calls it
+// The "removeItem" method changes the value of the private property "items" of the instance of the class that calls it
+// As a result of the call of "new Storage(["Nanitoids", "Prolonger", "Antigravitator"])" the value of the "storage" variable is an object
+// The "storage" object does not have a public property items
+// The first call storage.getItems() immediately after instance initialization returns an array ["Nanitoids", "Prolonger", "Antigravitator"]
+// The second call storage.getItems() after call storage.addItem("Droid") returns an array ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+// The third call storage.getItems() after call storage.removeItem("Prolonger") returns an array ["Nanitoids", "Antigravitator", "Droid"]
